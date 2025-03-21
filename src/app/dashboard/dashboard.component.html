@@ -28,9 +28,61 @@
 
     <!-- Cards Section -->
     <div class="cards-container">
-      <div class="card blue">Total Number of Feedback</div>
-      <div class="card green"></div>
-      <div class="card red"></div>
+      <!-- Total Feedback Card -->
+      <div class="card blue">
+        <p>Total Feedback</p>
+        <h2>{{ totalFeedback }}</h2>
+      </div>
+
+      <!-- Replied Feedback Card -->
+      <div class="card green">
+        <p>Replied Feedback</p>
+        <h2>{{ repliedFeedback }}</h2>
+      </div>
+
+      <!-- Latest Feedback Card -->
+      <div class="card red">
+        <p>Latest Feedback</p>
+        <h2 *ngIf="latestFeedback; else noFeedback">{{ latestFeedback.description }}</h2>
+        <ng-template #noFeedback>
+          <h2>No Recent Feedback</h2>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Feedback Table -->
+    <div class="feedback-table">
+      <h2>Feedback List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let feedback of feedbacks | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+            <td>{{ feedback.email }}</td>
+            <td>{{ feedback.phone }}</td>
+            <td>{{ feedback.description }}</td>
+            <td>
+              <div class="dropdown">
+                <button class="dropdown-toggle">⋯</button>
+                <ul class="dropdown-actions">
+                  <li (click)="replyFeedback(feedback.email)">✉️ Reply</li>
+                  <li (click)="assignFeedback(feedback.phone)">📩 Assign</li>
+                  <li (click)="deleteFeedback(feedback.id)">🗑️ Delete</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination Controls -->
+      <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
     </div>
   </div>
 </div>

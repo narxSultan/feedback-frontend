@@ -2,6 +2,7 @@
 .dashboard-container {
   display: flex;
   height: 100vh;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
 }
 
 /* Sidebar */
@@ -12,6 +13,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
+  box-shadow: #ddd 0px 0px 10px;
 }
 
 .logo {
@@ -56,6 +58,7 @@
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  box-shadow: #ddd 0px 0px 10px;
 }
 
 /* Icons */
@@ -90,14 +93,16 @@
   flex: 1;
   height: 150px;
   border-radius: 5px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.3);
   display: flex;
-  align-items:top;
-  margin-top: 2px;
-  justify-content: center;
+  flex-direction: column; /* Stack text elements inside */
+  align-items: center;
+  justify-content: center; /* Center content inside */
   font-size: 18px;
   font-weight: bold;
   color: white;
+  text-align: center;
+  padding: 10px;
 }
 
 .blue {
@@ -110,6 +115,45 @@
 
 .red {
   background: red;
+}
+
+.feedback-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+
+/* Pagination Styles */
+pagination-controls {
+  margin-top: 10px;
+  text-align: center;
 }
 
 .user-dropdown {
@@ -169,6 +213,10 @@
   color: white;
   text-align: center;
   padding: 0.5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
+  font-size: 15px;
+  font-weight: normal;
+  display: block;
 }
 
 .footer a {
@@ -180,4 +228,53 @@
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Three-dot button */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* Dropdown menu */
+.dropdown-actions {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  min-width: 120px;
+  display: none;
+  z-index: 100;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-actions {
+  display: block;
+}
+
+/* Dropdown items */
+.dropdown-actions li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-a li:hover {
+  background: #f1f1f1;
 }
