@@ -1,0 +1,36 @@
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <h3 class="logo">Logo</h3>
+    <ul class="menu">
+      <li>🏠 Dashboard</li>
+      <li>📊 Charts</li>
+      <li>📦 Components</li>
+      <li>📑 Layouts</li>
+      <li>🔓 Logout</li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header class="top-nav">
+      <input type="text" class="search-bar" placeholder="Type to search">
+       <div class="user-dropdown">
+          <!--<span class="notification">🔔<span class="badge">4</span></span>-->
+        <span class="user">👤</span>
+            <ul class="dropdown-menu">
+                <li>⚙️ Settings</li>
+                <li>🧑 Profile</li>
+                <li (click)="logout()">🚪 Logout</li>
+            </ul>
+      </div>
+    </header>
+
+    <!-- Cards Section -->
+    <div class="cards-container">
+      <div class="card blue">Total Number of Feedback</div>
+      <div class="card green"></div>
+      <div class="card red"></div>
+    </div>
+  </div>
+</div>

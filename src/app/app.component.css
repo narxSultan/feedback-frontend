@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+  background-color:  rgb(65, 129, 231);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 20px;
+  font-weight: normal;
+  display: block;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(65, 129, 231);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

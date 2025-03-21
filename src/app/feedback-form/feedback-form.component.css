@@ -1,0 +1,84 @@
+/* Center content */
+.feedback-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Style the title */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color:  rgb(65, 129, 231);
+  margin-bottom: 5px;
+}
+
+/* Style the subtitle */
+.subtitle {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Style the card */
+.card {
+  width: 400px;
+  margin: auto;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Style the card header */
+.card-header {
+  background-color: rgb(65, 129, 231);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Style the card body */
+.card-body {
+  padding: 20px;
+  margin-right: 2px;
+}
+
+/* Align labels to the left */
+label {
+  display: block;  /* Ensures each label takes full width */
+  font-weight: normal;
+  text-align: left; /* Aligns text to the left */
+  margin-top: 10px;
+}
+
+/* Style input fields */
+input, textarea, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Style submit button */
+button {
+  margin-top: 15px;
+  background-color: gray;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: rgb(65, 129, 231);
+  transform: scale(1.05);
+}
+
+/* Enable button when form is valid */
+button:not(:disabled) {
+  background-color: brgb(65, 129, 231)lue;
+}

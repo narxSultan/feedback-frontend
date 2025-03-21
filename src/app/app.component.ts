@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'feedback-frontend';
+  isAdminView = false;
+
+  toggleView() {
+    this.isAdminView = !this.isAdminView;
+  }
 }

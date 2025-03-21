@@ -1,0 +1,24 @@
+<div class="feedback-container">
+  <h2 class="title">Welcome to the Feedback Page</h2>
+  <p class="subtitle">Your feedback is important to us. Please fill out the form below.</p>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Feedback Form</h2>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+        <label>Email:</label>
+        <input type="email" formControlName="email" required />
+
+        <label>Phone Number:</label>
+        <input type="tel" formControlName="phone" required />
+
+        <label>Description:</label>
+        <textarea formControlName="description"></textarea>
+
+        <button type="submit" [disabled]="feedbackForm.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

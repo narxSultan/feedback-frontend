@@ -3,16 +3,22 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FeedformComponent } from './feedform/feedform.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FeedformComponent
+    FeedbackFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule
+
   ],
   providers: [
     provideClientHydration(withEventReplay())
@@ -20,3 +26,5 @@ import { FeedformComponent } from './feedform/feedform.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
