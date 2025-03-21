@@ -161,3 +161,23 @@
 .dropdown-menu li:hover {
   background-color: #f0f0f0;
 }
+.footer {
+  position: flex;
+  bottom: 0;
+  width: auto;
+  background-color: rgb(65, 129, 231);
+  color: white;
+  text-align: center;
+  padding: 0.5px;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

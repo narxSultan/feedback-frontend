@@ -82,3 +82,24 @@ button:hover {
 button:not(:disabled) {
   background-color: brgb(65, 129, 231)lue;
 }
+.footer {
+  position: flex;
+  bottom: 0;
+  width: auto;
+  background-color: rgb(65, 129, 231);
+  color: white;
+  text-align: center;
+  padding: 3px;
+  margin-top:390px;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  font-weight: normal;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
