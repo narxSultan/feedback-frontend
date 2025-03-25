@@ -5,9 +5,9 @@ import { Feedback } from '../models/feedback.model';
 
 @Component({
   selector: 'app-feedback-form',
-  standalone: false,
+  standalone: false, // Removed standalone property
   templateUrl: './feedback-form.component.html',
-  styleUrl: './feedback-form.component.css'
+  styleUrls: ['./feedback-form.component.css'], // Fixed property name
 })
 export class FeedbackFormComponent implements OnInit {
   feedbackForm!: FormGroup;
