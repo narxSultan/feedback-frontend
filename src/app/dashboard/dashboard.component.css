@@ -95,9 +95,9 @@
   border-radius: 5px;
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.3);
   display: flex;
-  flex-direction: column; /* Stack text elements inside */
+  flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center content inside */
+  justify-content: center;
   font-size: 18px;
   font-weight: bold;
   color: white;
@@ -128,7 +128,7 @@ table {
 }
 
 th, td {
-  padding: 10px;
+  padding: 5px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
