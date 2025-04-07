@@ -4,8 +4,7 @@ import { CanActivate, Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-/*export class AuthGuardService {
-
+export class UserAuthGuardService {
   constructor(private router: Router) {}
 
   canActivate(): boolean {
@@ -17,7 +16,7 @@ import { CanActivate, Router } from '@angular/router';
     }
   }
 }
-*/
+
 export class AuthGuard implements CanActivate {
   constructor(private router: Router) {}
 
@@ -53,5 +52,33 @@ export class AuthGuard implements CanActivate {
     }
 
     return true;
+  }
+  isLoggedIn(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      return !!localStorage.getItem('token'); // Adjust this to your actual auth logic
+    }
+    return false; // Return false if localStorage is unavailable
+  }
+}
+import { Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuardService {
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PlatformAuthGuardService {
+  constructor(@Inject(PLATFORM_ID) private platformId: any) {}
+
+  isLoggedIn(): boolean {
+    if (isPlatformBrowser(this.platformId)) {
+      return !!localStorage.getItem('token');
+    }
+    return false;
   }
 }

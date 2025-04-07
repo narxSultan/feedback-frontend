@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -7,33 +6,8 @@ import { AuthService } from '../services/auth.service';
   selector: 'app-login',
   standalone: false,
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
-/*export class LoginComponent {
-  loginForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
-  }
-
-  onLogin() {
-    if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
-
-      // Simple validation (You can replace this with real authentication)
-      if (username === 'admin' && password === 'password') {
-        alert('Login Successful!');
-        this.router.navigate(['/admin-dashboard']); // Redirect to admin dashboard
-      } else {
-        alert('Invalid credentials. Try again.');
-      }
-    }
-  }
-}
-*/
 export class LoginComponent {
   email = '';
   password = '';
@@ -44,11 +18,11 @@ export class LoginComponent {
   onLogin() {
     this.authService.login(this.email, this.password).subscribe({
       next: (response: { token: string }) => {
-        localStorage.setItem('token', response.token);
-        this.router.navigate(['/dashboard']); // Redirect to Dashboard
+        localStorage.setItem('token', response.token);  // Save token in localStorage
+        this.router.navigate(['/dashboard']); // Navigate to Dashboard after successful login
       },
       error: (error: any) => {
-        this.errorMessage = 'Invalid credentials!';
+        this.errorMessage = 'Invalid credentials!';  // Show error message if credentials are incorrect
         console.error(error);
       }
     });
