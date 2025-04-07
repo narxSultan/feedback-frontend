@@ -11,6 +11,7 @@ import { HttpClientModule, provideHttpClient, withFetch} from '@angular/common/h
 import { NgxPaginationModule } from 'ngx-pagination'; // Ensure this is the correct path to the module
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommonModule } from '@angular/common';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CommonModule } from '@angular/common';
     DashboardComponent,
     AppComponent,
     FeedbackFormComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

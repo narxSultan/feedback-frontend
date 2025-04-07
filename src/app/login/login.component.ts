@@ -18,11 +18,11 @@ export class LoginComponent {
   onLogin() {
     this.authService.login(this.email, this.password).subscribe({
       next: (response: { token: string }) => {
-        localStorage.setItem('token', response.token);  // Save token in localStorage
-        this.router.navigate(['/dashboard']); // Navigate to Dashboard after successful login
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/dashboard']);
       },
       error: (error: any) => {
-        this.errorMessage = 'Invalid credentials!';  // Show error message if credentials are incorrect
+        this.errorMessage = 'Invalid credentials!';
         console.error(error);
       }
     });
