@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FeedbackService } from '../services/feedback.service';
-
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,13 +14,14 @@ export class DashboardComponent implements OnInit {
   feedbacks: any[] = [];
   currentPage: number = 1;  // Track current page
   itemsPerPage: number = 10; // Set page size to 10
+  user: any;
 
 
   onPageChange(event: number): void {
     this.currentPage = event;
   }
 
-  constructor(private router: Router, private feedbackService: FeedbackService) {}
+  constructor(private router: Router, private feedbackService: FeedbackService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadFeedbacks();
@@ -80,6 +81,16 @@ export class DashboardComponent implements OnInit {
         this.repliedFeedback = data.repliedFeedback || 0;
         this.latestFeedback = data.latestFeedback || null;
       }
+
+      this.authService.getDashboardData().subscribe({
+        next: (data) => {
+          this.user = data;
+        },
+        error: (error) => {
+          console.error('Error fetching dashboard data', error);
+        }
+
     });
   }
+)}
 }

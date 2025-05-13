@@ -1,34 +1,35 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: false,
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm: FormGroup;
+  email = '';
+  password = '';
+  errorMessage = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
   onLogin() {
-    if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
-
-      // Simple validation (You can replace this with real authentication)
-      if (username === 'admin' && password === 'password') {
-        alert('Login Successful!');
-        this.router.navigate(['/admin-dashboard']); // Redirect to admin dashboard
-      } else {
-        alert('Invalid credentials. Try again.');
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response: any) => {
+        if (response && response.token) {
+          localStorage.setItem('token', response.token);
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.errorMessage = 'Login failed. No token received.';
+          console.error('No token in response:', response);
+        }
+      },
+      error: (error: any) => {
+        this.errorMessage = 'Invalid credentials!';
+        console.error(error);
       }
-    }
+    });
   }
 }

@@ -48,9 +48,9 @@
 
 /* Align labels to the left */
 label {
-  display: block;  /* Ensures each label takes full width */
+  display: block;
   font-weight: normal;
-  text-align: left; /* Aligns text to the left */
+  text-align: left;
   margin-top: 10px;
 }
 
@@ -83,6 +83,7 @@ button:hover {
 button:not(:disabled) {
   background-color: brgb(65, 129, 231);
 }
+
 .footer {
   position: flex;
   bottom: 0;
